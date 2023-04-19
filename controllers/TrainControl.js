@@ -14,7 +14,7 @@ const getTrains = async (req, res) => {
 const getTrainsBooking = async (req, res) => {
     try {
          const TrainDetailsBook = await trainScheduleBookingSchema.find({ userId:req.user.id }).sort({
-            createdAt:-1
+            createdAt:1
          }).populate("trainId");
         res.json(TrainDetailsBook);
     } catch (err) {
